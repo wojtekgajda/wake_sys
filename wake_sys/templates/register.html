@@ -1,0 +1,23 @@
+{% extends 'base.html' %}{% load crispy_forms_filters %}
+{% block title %} Register {% endblock %}
+{% block content %}
+    <h1>WAKE_SYS REGISTRATION</h1>
+
+   <div class="content-section d-flex p-2">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <fielset class="form-group">
+                    <legend class="border-bottom mb-4">Register Account</legend>
+                   <div class="form-div">{{ form|crispy }}</div>  <!-- renderowanie forma przez crispy forms -->
+                </fielset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Register</button>
+                </div>
+            </form>
+            <div class="border-top pt-3 text-center">
+                 <small class="text-muted">Already Have An Account?
+                     <br><a href="{% url 'sys-login'%}" class="ml-2" style="color: #1ab7ea">Log in</a>
+                 </small>
+            </div>
+        </div>
+{% endblock %}

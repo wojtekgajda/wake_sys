@@ -1,0 +1,28 @@
+{% extends 'base.html' %}{% load crispy_forms_filters %}
+
+{% block title %} Log in {% endblock %}
+
+{% block content %}
+    <h1>WAKE_SYS LOG IN</h1>
+   <div class="d-flex p-5">
+            <form action="" method="POST">
+            {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Log in</legend>
+                   <div class="form-div">{{ form|crispy }}</div>  <!-- renderowanie forma przez crispy forms -->
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Log in</button>
+                </div>
+            </form>
+            <div class="border-top pt-3 text-center">
+                 <small class="text-muted">Need an account ?
+                     <br><a href="{% url 'sys-register'%}" style="color: #1ab7ea">Sign in</a>
+                 </small>
+            </div>
+        </div>
+
+
+
+
+{% endblock %}

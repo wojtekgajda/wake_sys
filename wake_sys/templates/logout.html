@@ -1,0 +1,15 @@
+{% extends 'home.html' %}{% load crispy_forms_filters %}
+
+{% block title %} Log in {% endblock %}
+
+{% block content %}
+    <h1>WAKE_SYS</h1>
+   <div class="d-flex p-2">
+            <h2>You are logged out</h2>
+        </div>
+    <div class="border-top pt-3 text-center">
+                 <small class="text-muted">Log in again?
+                     <br><a href="{% url 'sys-login'%}" style="color: #1ab7ea">Log in</a>
+                 </small>
+            </div>
+{% endblock %}
