@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"/>
-    <script src="../static/js/srcipt.js"></script>
+{#    <script src="../static/js/srcipt.js"></script>#}
 </head>
 <body>
 
-<div class="">
-    <div class="">
-        <table class="tg" style="">
+
+
+        <table class="" style="">
             <thead>
             <tr>
                 <th class="tg-0pky" style="background-color: #1ab7ea">Hour</th>
@@ -24,82 +24,21 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td class="tg-0pky">{{ hours.0.1 }}</td>
-                <td class="tg-0pky" id="0A">w</td>
-                <td class="tg-0pky" id="0B">w</td>
-                <td class="tg-0pky" id="0C">w</td>
-                <td class="tg-0pky" id="0D">w</td>
-            </tr>
-            <tr>
-                <td class="tg-0pky">{{ hours.1.1 }} </td>
-                <td class="tg-0pky" id="11A">w</td>
-                <td class="tg-0pky" id="11B">w</td>
-                <td class="tg-0pky" id="11C">w</td>
-                <td class="tg-0pky" id="11D">w</td>
-            </tr>
-            <tr>
-                <td class="tg-0pky">{{ hours.2.1 }}</td>
-                <td class="tg-0pky" id="12A">w</td>
-                <td class="tg-0pky" id="12B">w</td>
-                <td class="tg-0pky" id="12C">w</td>
-                <td class="tg-0pky" id="12D">w</td>
-            </tr>
-            <tr>
-                <td class="tg-0pky">{{ hours.3.1 }}</td>
-                <td class="tg-0pky" id="13A">w</td>
-                <td class="tg-0pky" id="13B">w</td>
-                <td class="tg-0pky" id="13C">w</td>
-                <td class="tg-0pky" id="13D">w</td>
-            </tr>
-            <tr>
-                <td class="tg-0pky">{{ hours.4.1 }}</td>
-                <td class="tg-0pky" id="14A">w</td>
-                <td class="tg-0pky" id="14B">w</td>
-                <td class="tg-0pky" id="14C">w</td>
-                <td class="tg-0pky" id="14D">w</td>
-            </tr>
-            <tr>
-                <td class="tg-0pky">{{ hours.5.1 }}</td>
-                <td class="tg-0pky" id="15A">w</td>
-                <td class="tg-0pky" id="15B">w</td>
-                <td class="tg-0pky" id="15C">w</td>
-                <td class="tg-0pky" id="15D">w</td>
-            </tr>
-            <tr>
-                <td class="tg-0pky">{{ hours.6.1 }}</td>
-                <td class="tg-0pky" id="16A">w</td>
-                <td class="tg-0pky" id="16B">w</td>
-                <td class="tg-0pky" id="16C">w</td>
-                <td class="tg-0pky" id="16D">w</td>
-            </tr>
-            <tr>
-                <td class="tg-0pky">{{ hours.7.1 }}</td>
-                <td class="tg-0pky" id="17A">w</td>
-                <td class="tg-0pky" id="17B">w</td>
-                <td class="tg-0pky" id="17C">w</td>
-                <td class="tg-0pky" id="17D">w</td>
-            </tr>
-            <tr>
-                <td class="tg-0pky">{{ hours.8.1 }}</td>
-                <td class="tg-0pky" id="18A">w</td>
-                <td class="tg-0pky" id="18B">w</td>
-                <td class="tg-0pky" id="18C">w</td>
-                <td class="tg-0pky" id="18D">w</td>
-            </tr>
-            <tr>
-                <td class="tg-0pky">{{ hours.9.1 }}</td>
-                <td class="tg-0pky" id="19A">w</td>
-                <td class="tg-0pky" id="19B">w</td>
-                <td class="tg-0pky" id="19C">w</td>
-                <td class="tg-0pky" id="19D">w</td>
-            </tr>
-            </tbody>
+            {% for hour in hour_slots %}
+                <tr>
+                    {% for slot in hour %}
+                        {% if forloop.first %} <td>{{ slot }}</td>
+                        {% else %}
+                    <td>{{ slot|yesno:' Not Available, Availalable' }}</td>
+                        {% endif %}
 
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
         </table>
-    </div>
-</div>
-</div>
+
+
 </body>
 </html>
 

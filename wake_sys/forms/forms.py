@@ -45,11 +45,13 @@ class ReservationForm(forms.ModelForm):
         exclude = ['user']
 
 
+class AdminReservationFrom(forms.ModelForm):
+    class Meta:
+        model = Reservation
+        fields = "__all__"
+
+
 class AvailabilityForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = ['day', 'hour', 'start_slot', 'instructor', 'gear' ]
-
-
-
-
+        fields = ['day', 'hour', 'start_slot', 'instructor', 'gear']

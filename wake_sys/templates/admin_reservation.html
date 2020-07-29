@@ -1,0 +1,55 @@
+{% extends 'base.html' %}{% load crispy_forms_filters %}
+{% block title %} Bookings {% endblock %}
+
+{% block content %}
+    <h1>My Bookings</h1>
+    {% if user.is_staff %}
+        <div class="mr-3">
+            <nav class="navbar">
+                 <form class="form-inline my-lg-n4 my-lg-1 mb-3">
+          <input
+                  class="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Search..."
+                  aria-label="Search"
+                  style="width: 500px; margin-left: 15px"
+                  name="search"
+          >
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj</button>
+        </form>
+
+{#                <form class="form-inline">#}
+{#                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
+{#                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+{#                </form>#}
+            </nav>
+        </div>
+        <div class="h-100 row align-items-center">
+        {% for booking in bookings %}
+            <div class="container">
+                <ul>
+                    <li>Reservation for user: {{ booking.user }}
+                    <li>Day: {{ booking.day }}
+                    <li>Hour: {{ booking.hour }} : {{ booking.start_slot }}
+                    <li>Duration: {{ booking.duration }} slots
+                        {% if booking.instructor %}
+                            <li> Instructor required
+                        {% else %}
+
+                        {% endif %}
+                        {% if booking.gear %}
+                            <li>Wakeboarding gear required
+                        {% else %}
+
+                        {% endif %}
+                        <a class='btn btn-secondary' href="{% url 'sys-reservation-update' booking.id %}">
+                            Edit
+                        </a>
+                        <a class='btn btn-secondary' href="{% url 'sys-reservation-delete' booking.id %}">Delete</a>
+                        </li>
+                </ul>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

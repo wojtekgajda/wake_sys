@@ -19,9 +19,12 @@ from django.contrib.auth import views as auth_views
 
 
 from wake_sys.views.views import HomeView, RegisterView, ReservationCreateView, ProfileView, \
-    ReservationsView, ReservationUpdateView, ReservationDeleteView, AvailabilityView
+    ReservationsView, ReservationUpdateView, ReservationDeleteView, AvailabilityView, AdminReservationView, \
+    AdminReservations
 from django.conf import settings
 from django.conf.urls.static import static
+
+
 
 
 urlpatterns = [
@@ -36,6 +39,7 @@ urlpatterns = [
     path('reservation_update/<int:reservation_id>/', ReservationUpdateView.as_view(), name='sys-reservation-update'),
     path('reservation_delete/<int:pk>/', ReservationDeleteView.as_view(), name='sys-reservation-delete'),
     path('reservation_table/', AvailabilityView.as_view(), name='sys-availability'),
+    path('admin/reservation/', AdminReservations.as_view(), name='admin-reservations'),
 ]
 
 if settings.DEBUG:

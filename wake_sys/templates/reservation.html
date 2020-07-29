@@ -3,12 +3,12 @@
 {% block title %} Reservation {% endblock %}
 
 {% block content %}
-    <h1>WAKE_SYS LOG IN</h1>
+    <h1>WAKE_SYS Reservations</h1>
    <div class="d-flex p-5">
             <form action="" method="POST">
             {% csrf_token %}
                 <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Join Today</legend>
+                    <legend class="border-bottom mb-4">Reservation</legend>
                    <div class="form-div">{{ form|crispy }}</div>
                 </fieldset>
                 <div class="form-group">

@@ -1,6 +1,3 @@
-import datetime
-
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
@@ -43,15 +40,9 @@ class Reservation(models.Model):
     instructor = models.BooleanField()
     gear = models.BooleanField()
 
-
     def __str__(self):
         return (f'Rezerwacja: {self.day}, godzina {self.hour}:{self.start_slot}, ilość miejść: {self.duration},'
                 f' instuktor: {self.instructor}, sprzęt: {self.gear}')
-
-    # def save(self, *args, **kwargs):
-    #     if self.day < datetime.date.today():
-    #         raise ValidationError("You can't make reservation in the past!")
-    #     super(Reservation, self).save(*args, **kwargs)
 
 
 class Profile(models.Model):

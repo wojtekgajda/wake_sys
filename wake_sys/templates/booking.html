@@ -8,7 +8,7 @@
         {% for booking in bookings %}
             <div class="container">
                 <ul>
-                    <li>Reservation for user{{ booking.user }}
+                    <li>Reservation for user: {{ booking.user }}
                     <li>Day: {{ booking.day }}
                     <li>Hour: {{ booking.hour }} : {{ booking.start_slot }}
                     <li>Duration: {{ booking.duration }} slots
