@@ -1,3 +1,3 @@
 # wake_sys
 Reservation system 
-Python / Django wakeboard resevation system
+Python / Django wakeboard reservation system
